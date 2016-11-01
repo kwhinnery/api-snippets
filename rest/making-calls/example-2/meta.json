@@ -1,4 +1,5 @@
 {
   "title": "Make an outbound call to a Twilio Client endpoint",
+  "description": "Call a twilio client",
   "type": "server"
 }
