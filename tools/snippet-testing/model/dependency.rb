@@ -51,9 +51,11 @@ module Model
       FileUtils.mkdir_p(DEP_DIR_NAME)
 
       Dir.chdir(DEP_DIR_NAME) do
-        snippet_language_key = ENV['SNIPPET_LANGUAGE']
-        if !snippet_language_key.nil?
-          dependencies.fetch(snippet_language_key.to_sym).call
+        snippet_language_varaible = ENV['SNIPPET_LANGUAGE']
+        if !snippet_language_varaible.nil?
+          snippet_language_varaible.split(':').each do |language|
+            dependencies.fetch(language.to_sym).call
+          end
         else
           dependencies.values.each(&:call)
         end
